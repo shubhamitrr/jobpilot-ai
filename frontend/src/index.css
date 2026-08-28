@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-navy-900 font-body antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+::selection {
+  background: #4A3FE5;
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid #4A3FE5;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Signature element: the match-score ring, used across the app ---- */
+.match-ring {
+  --ring-size: 64px;
+  --ring-thickness: 6px;
+  --ring-pct: 0;
+  --ring-color: #5B5FEF;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 9999px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(
+    var(--ring-color) calc(var(--ring-pct) * 1%),
+    #E2E8F0 0
+  );
+}
+
+.match-ring::before {
+  content: '';
+  position: absolute;
+  inset: var(--ring-thickness);
+  border-radius: 9999px;
+  background: white;
+}
+
+.match-ring span {
+  position: relative;
+  z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
